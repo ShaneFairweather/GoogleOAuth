@@ -4,6 +4,18 @@ const keys = require('../config/keys');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
+passport.serializeUser((user, done) => {
+    // user.id refers to the id assigned by the database, not the OAuth (google, facebook, etc) id.
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    User.findById(id)
+        .then(user => {
+            done(null, user);
+        });
+});
+
 passport.use(
     new GoogleStrategy({
             clientID: keys.googleClientID,
@@ -11,9 +23,18 @@ passport.use(
             callbackURL: '/auth/google/callback'
         },
         (accessToken, refreshToken, profile, done) => {
-            new User({
-                googleId: profile.id,
-                username: profile.displayName
-            }).save();
+            User.findOne({googleId: profile.id})
+                .then((existingUser) => {
+                    if(existingUser) {
+                        done(null, existingUser);
+                    } else {
+                        new User({
+                            googleId: profile.id,
+                            username: profile.displayName
+                        })
+                            .save()
+                            .then(user => done(null, user));
+                    }
+                })
         })
 );
