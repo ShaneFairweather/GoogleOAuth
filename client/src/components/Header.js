@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     //{/*renderLinks() {*/}
@@ -30,7 +30,8 @@ class Header extends Component {
             <Navbar fixedTop collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">InterReact</Link>
+                        {/*<Link to="/">InterReact</Link>*/}
+                        InterReact
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
@@ -43,4 +44,4 @@ class Header extends Component {
 }
 
 
-export default connect(mapStateToProps)(Header);
+export default Header;
