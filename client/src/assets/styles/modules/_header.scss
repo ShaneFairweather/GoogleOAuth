@@ -1,0 +1,63 @@
+.navbar {
+  box-shadow: $boxShadow;
+  border-radius: 0;
+  //background-color: #724290;
+  .navbar-collapse ul li a {
+    color: white;
+    &:visited {
+      color: white;
+    }
+    &:hover {
+      color: $buttonColor;
+      transition: $transition;
+    }
+  }
+}
+
+.rbLink {
+  a {
+    &:hover {
+      color: $buttonColor;
+    }
+  }
+}
+
+.signoutLink {
+  top: 1px;
+}
+
+.navbar-default {
+  background-color: $mainColor;
+  border: none;
+  .navbar-brand {
+    font-family: 'Play', sans-serif;
+    color: white;
+    font-size: 1.7em;
+    &:visited {
+      color: white;
+    }
+    &:hover {
+      color: $buttonColor;
+      //text-shadow: -1px -1px 26px white;
+      transition: $transition;
+    }
+  }
+  a {
+    color: white;
+    &:hover {
+      text-decoration: none;
+      color: $buttonColor;
+      //text-shadow: -1px -1px 26px white;
+      transition: $transition;
+    }
+  }
+  img {
+    height: 25px;
+    margin-right: 5px;
+  }
+}
+
+#main {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}

@@ -1,0 +1,19 @@
+.account {
+  .panel-body {
+    .avatarContainer {
+      margin: 0 auto;
+      padding:  0 20px;
+      img {
+        height: 150px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+      }
+    }
+    .passwordContainer {
+      padding: 0 20px 10px;
+    }
+  }
+}
