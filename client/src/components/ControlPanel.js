@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Panel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 class ControlPanel extends Component {
 

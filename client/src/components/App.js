@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import logo from '../logo.svg';
-// import './App.css';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
 import '../assets/styles/styles.css';
+import '../../node_modules/bootstrap-social/bootstrap-social.css';
 import Header from './Header';
+import Home from './Home';
 import UserList from './UserList';
 import ControlPanel from './ControlPanel';
+import Signin from './Signin';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+
+
 class App extends Component {
+    componentDidMount() {
+        this.props.fetchUser();
+        this.props.fetchUserList();
+        console.log(this.props.users);
+    }
+
   render() {
     return (
       <div className="App">
@@ -21,13 +33,17 @@ class App extends Component {
                               <Col xs={12} md={3}>
                                   <ControlPanel />
                               </Col>
-                              {this.props.children}
+                              <Col xs={12} md={6}>
+                                  <Route exact path="/" component={Home} />
+                                  <Route exact path="/signin" component={Signin} />
+                              </Col>
                               <Col xs={12} md={3}>
-                                  <UserList users={this.props.users}/>
+                                  <UserList users={this.props.users} />
                               </Col>
                           </Row>
                       </Grid>
                   </div>
+                  <Header />
               </div>
           </BrowserRouter>
       </div>
@@ -35,4 +51,12 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        users: state.users
+    }
+}
+
+
+export default connect(mapStateToProps, actions)(App);
+// export default App;

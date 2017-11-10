@@ -193,3 +193,8 @@ body {
 
 .post .innerPost {
   padding: 10px; }
+
+.signin .signin-button-container .signin-button {
+  cursor: pointer;
+  margin-bottom: 17px;
+  min-width: 195px; }
