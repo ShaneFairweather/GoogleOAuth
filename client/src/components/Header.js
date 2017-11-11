@@ -18,7 +18,8 @@ class Header extends Component {
            default:
                return ([
                    <Nav pullRight key="signout" id="signout">
-                       <NavItem eventKey={3} className="rbLink signoutLink"><Link to="/api/logout">Sign out</Link></NavItem>
+                       <li className="signoutLink"><a href="/api/logout">Sign out</a></li>
+
                    </Nav>,
                    <Nav pullRight key="greetUser" id="greetUser">
                        <NavItem eventKey={2} className="rbLink">

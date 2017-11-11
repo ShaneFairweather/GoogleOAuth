@@ -3,8 +3,8 @@ const User = mongoose.model('users');
 
 
 module.exports = app => {
-    app.get("/users", function(req, res) {
-        User.find({}, function(err, users) {
+    app.get("/users", (req, res) => {
+        User.find({}, (err, users) => {
             res.send(users);
         })
     });
