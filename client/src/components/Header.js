@@ -6,7 +6,7 @@ import Profile from '../assets/images/portrait.png';
 
 class Header extends Component {
     renderLinks() {
-       switch (this.props.auth) {
+       switch (this.props.user) {
            case null:
                return;
            case false:
@@ -24,7 +24,7 @@ class Header extends Component {
                    <Nav pullRight key="greetUser" id="greetUser">
                        <NavItem eventKey={2} className="rbLink">
                            <Link to="/account">
-                               <img src={this.props.auth.image} alt="headerImg" />&nbsp;{this.props.auth.username}
+                               <img src={this.props.user.image} alt="headerImg" />&nbsp;{this.props.user.username}
                            </Link>
                        </NavItem>
                    </Nav>
@@ -52,7 +52,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.auth
+        user: state.auth
     }
 }
 
