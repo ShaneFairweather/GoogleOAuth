@@ -4,15 +4,11 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 
-class PostList extends Component {
-    componentWillReceiveProps() {
-        this.props.fetchPostList();
-    }
-
-    renderList() {
-        if(this.props.posts) {
-            console.log(this.props.posts);
-            return this.props.posts.reverse().map((post) => {
+const PostList = (props) => {
+    const renderList = () => {
+        if(props.posts) {
+            console.log(props.posts);
+            return props.posts.reverse().map((post) => {
                 return (
                     <Panel key={post._id} className='post'>
                         <div className="innerPost">
@@ -27,24 +23,15 @@ class PostList extends Component {
                 )
             })
         }
-    }
-    render() {
-        return (
-            <div>
-                <div className="postList">
-                    {this.renderList()}
-                </div>
+    };
+
+    return (
+        <div>
+            <div className="postList">
+                {renderList()}
             </div>
-        )
-    }
+        </div>
+    )
 }
 
-// Add props to PostList container
-function mapStateToProps(state) {
-    // console.log(typeof state.posts);
-    return {
-        posts: state.posts
-    }
-}
-
-export default connect(mapStateToProps, actions)(PostList);
+export default PostList;

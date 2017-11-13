@@ -39,7 +39,12 @@ class App extends Component {
                                   <Route
                                       exact
                                       path="/"
-                                      render={(props) => (<Home {...props} user={this.props.user} />)}                                                />
+                                      render={(props) => (
+                                          <Home
+                                            {...props}
+                                            user={this.props.user}
+                                            posts={this.props.posts}
+                                          />)}                                                />
                                   <Route exact path="/signin" component={Signin} />
                               </Col>
                               <Col xs={12} md={3}>
@@ -60,7 +65,8 @@ function mapStateToProps(state) {
     console.log(state);
     return {
         user: state.auth,
-        users: state.users
+        users: state.users,
+        posts: state.posts
     }
 }
 

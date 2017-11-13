@@ -8,13 +8,13 @@ const Home = (props) => {
         return (
             <div>
                 <PostForm/>
-                <PostList/>
+                <PostList posts={props.posts}/>
             </div>
         );
     } else {
         return (
             <div>
-                <PostList/>
+                <PostList posts={props.posts}/>
             </div>
         )
     }

@@ -18,8 +18,8 @@ const ControlPanel = (props) => {
         return (
             <Panel className="loginControlPanel">
                 <h2>InterReact</h2>
-                <h3><Link to="/signin">Log in</Link> or <Link to="/signup">create an account</Link> to make posts
-                </h3>
+                <p className="loginControlPanel__text"><Link to="/signin">Sign in</Link> to create posts
+                </p>
             </Panel>
         )
     }
