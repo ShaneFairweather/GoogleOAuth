@@ -84,7 +84,8 @@ body {
 .loginControlPanel .panel-body {
   padding: 30px 20px 80px; }
   .loginControlPanel .panel-body h2 {
-    margin-top: 8px; }
+    margin-top: 8px;
+    font-family: 'Play', sans-serif; }
   .loginControlPanel .panel-body a {
     color: #03a9f4;
     text-decoration: none; }
