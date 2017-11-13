@@ -36,7 +36,10 @@ class App extends Component {
                                   <ControlPanel user={this.props.user} />
                               </Col>
                               <Col xs={12} md={6}>
-                                  <Route exact path="/" component={Home} />
+                                  <Route
+                                      exact
+                                      path="/"
+                                      render={(props) => (<Home {...props} user={this.props.user} />)}                                                />
                                   <Route exact path="/signin" component={Signin} />
                               </Col>
                               <Col xs={12} md={3}>

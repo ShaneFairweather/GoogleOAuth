@@ -3,14 +3,20 @@ import { Col } from 'react-bootstrap';
 import PostList from './PostList';
 import PostForm from '../components/PostForm';
 
-class Home extends Component {
-    render() {
+const Home = (props) => {
+    if(props.user) {
         return (
             <div>
-                <PostForm />
-                <PostList />
+                <PostForm/>
+                <PostList/>
             </div>
         );
+    } else {
+        return (
+            <div>
+                <PostList/>
+            </div>
+        )
     }
 }
 

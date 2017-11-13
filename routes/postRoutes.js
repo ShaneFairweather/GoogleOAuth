@@ -17,12 +17,6 @@ module.exports = app => {
     });
 
     app.get("/api/posts", (req, res) => {
-        console.log('====');
-        console.log('====');
-        console.log('====');
-        console.log('====');
-        console.log('====');
-        console.log(res);
         Post.find({}, (err, posts) => {
             res.send(posts);
         })
