@@ -21,14 +21,15 @@ class PostForm extends Component {
     }
 
     onSubmit(e) {
-        console.log('test');
         e.preventDefault();
-        console.log(this.props.user);
+        console.log(this.props.user.image);
         this.props.addPost(
             this.props.user.username,
             this.props.user.image,
             this.state.postContent
         )
+        this.props.fetchPostList();
+        console.log('im upset');
     }
 
     render() {

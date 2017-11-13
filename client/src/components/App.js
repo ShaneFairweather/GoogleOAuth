@@ -18,7 +18,9 @@ class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
         this.props.fetchUserList();
+        this.props.fetchPostList();
         console.log(this.props.users);
+        console.log(this.props.posts);
     }
 
   render() {
@@ -31,7 +33,7 @@ class App extends Component {
                       <Grid>
                           <Row>
                               <Col xs={12} md={3}>
-                                  <ControlPanel />
+                                  <ControlPanel user={this.props.user} />
                               </Col>
                               <Col xs={12} md={6}>
                                   <Route exact path="/" component={Home} />
@@ -52,7 +54,9 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state);
     return {
+        user: state.auth,
         users: state.users
     }
 }

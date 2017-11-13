@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ADD_POST, FETCH_USER, FETCH_USER_LIST} from './types';
+import {ADD_POST, FETCH_USER, FETCH_USER_LIST, FETCH_POST_LIST} from './types';
 
 export const fetchUser = () =>
     async dispatch => {
@@ -22,15 +22,17 @@ export const fetchUserList = () =>
 //     }
 // }
 
-export const addPost = ({author, avatar, content}) => {
-    // async dispatch => {
-    //     const req = await axios.post('/api/add-post', {author, avatar, content});
-    //     dispatch({ type: ADD_POST, payload: req.data });
-    // };
+export const addPost = (author, avatar, content) => {
     const request = axios.post('/api/add-post', {author, avatar, content});
-    // console.log(request);
     return {
         type: ADD_POST,
         payload: request
     }
 }
+
+
+export const fetchPostList = () =>
+    async dispatch => {
+        const res = await axios.get('/api/posts');
+        dispatch({ type: FETCH_POST_LIST, payload: res.data });
+    };
