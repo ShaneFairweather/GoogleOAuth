@@ -25,7 +25,7 @@ passport.use(
             proxy: true
         },
         async (accessToken, refreshToken, profile, done) => {
-            // console.log(profile._json.image.url);
+            console.log(profile.emails[0].value);
             const existingUser = await User.findOne({googleId: profile.id});
                 if(existingUser) {
                     return done(null, existingUser);
@@ -33,7 +33,8 @@ passport.use(
                 const user = await new User({
                     googleId: profile.id,
                     username: profile.displayName,
-                    image: profile._json.image.url
+               //     image: profile._json.image.url
+                    image: gravatar.url(profile.emails[0].value, {s: '100', r: 'x', d: 'retro'}, true)
                 }).save();
                 done(null, user);
 
