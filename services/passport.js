@@ -3,7 +3,6 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('../config/keys');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
-const gravatar = require('gravatar');
 
 passport.serializeUser((user, done) => {
     // user.id refers to the id assigned by the database, not the OAuth (google, facebook, etc) id.
@@ -34,8 +33,7 @@ passport.use(
                 const user = await new User({
                     googleId: profile.id,
                     username: profile.displayName,
-                  //  image: profile._json.image.url
-                    image: gravatar.url(profile.email, {s: '100', r: 'x', d: 'retro'}, true),
+                    image: profile._json.image.url
                 }).save();
                 done(null, user);
 
