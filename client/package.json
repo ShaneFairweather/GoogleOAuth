@@ -10,8 +10,6 @@
       "target": "http://localhost:5000"
     }
   },
-  "devDependencies": {
-  },
   "dependencies": {
     "axios": "^0.17.0",
     "bootstrap-social": "^5.1.1",
@@ -24,7 +22,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
