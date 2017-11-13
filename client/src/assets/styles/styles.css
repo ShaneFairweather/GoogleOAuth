@@ -33,7 +33,6 @@ body {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px; }
-
 .account .panel-body .passwordContainer {
   padding: 0 20px 10px; }
 
@@ -92,7 +91,6 @@ body {
     .loginControlPanel .panel-body a:hover {
       color: #3c5a98;
       transition: all .2s ease-in-out; }
-
 .loginControlPanel__text {
   font-size: 20px; }
 
@@ -169,7 +167,8 @@ body {
       transition: all 0.4s ease 0s; }
   .navbar-default img {
     height: 25px;
-    margin-right: 5px; }
+    margin-right: 5px;
+    border-radius: 50%; }
 
 #main {
   margin-top: 80px;
@@ -178,32 +177,36 @@ body {
 .userList {
   box-shadow: none; }
   .userList img {
-    border-radius: 3px; }
+    border-radius: 50%;
+    height: 34px; }
   .userList .list-group-item {
     border: none; }
     .userList .list-group-item:hover {
       color: #333;
       background-color: #e7e7e7; }
 
-.post img {
-  float: left;
-  margin-right: 10px;
-  height: 60px; }
-
-.post .postAuthor {
-  font-size: 1.8em;
-  margin-bottom: 0; }
-
-.post .postBody {
-  clear: both;
-  margin-top: 20px;
-  padding: 10px 0; }
-
-.post .innerPost {
-  padding: 10px; }
-
 .signin .signin-button-container .signin-button {
   cursor: pointer;
   margin-bottom: 17px;
   min-width: 195px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+
+.post img {
+  float: left;
+  margin-right: 10px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  top: 2px; }
+.post .postAuthor {
+  font-size: 1.6em;
+  margin-bottom: 0;
+  margin-top: 0; }
+.post .postBody {
+  clear: both;
+  margin-top: 20px;
+  padding: 10px 0; }
+.post .innerPost {
+  padding: 10px; }
+
+/*# sourceMappingURL=styles.css.map */

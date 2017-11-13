@@ -29,7 +29,6 @@ class PostForm extends Component {
             this.state.postContent
         )
         this.props.fetchPostList();
-        console.log('im upset');
     }
 
     render() {
