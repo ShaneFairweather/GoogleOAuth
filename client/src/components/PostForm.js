@@ -29,6 +29,9 @@ class PostForm extends Component {
             this.state.postContent
         )
         this.props.fetchPostList();
+        this.setState({
+            postContent: ''
+        })
     }
 
     render() {

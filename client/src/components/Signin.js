@@ -13,7 +13,7 @@ class Signin extends Component {
                         Sign in with Google
                     </a>
                     <br/>
-                    <a className="btn btn-social btn-facebook signin-button">
+                    <a href="/auth/facebook" className="btn btn-social btn-facebook signin-button">
                         <span className="fa fa-facebook"></span>
                         Sign in with Facebook
                     </a>

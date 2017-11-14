@@ -6,10 +6,13 @@ import * as actions from '../actions';
 import '../assets/styles/styles.css';
 import '../../node_modules/bootstrap-social/bootstrap-social.css';
 import Header from './Header';
+import Footer from './Footer';
 import Home from './Home';
 import UserList from './UserList';
 import ControlPanel from './ControlPanel';
+import Account from './Account';
 import Signin from './Signin';
+import Blog from './Blog';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 
@@ -44,7 +47,18 @@ class App extends Component {
                                             {...props}
                                             user={this.props.user}
                                             posts={this.props.posts}
-                                          />)}                                                />
+                                          />)}
+                                  />
+                                  <Route
+                                      exact
+                                      path="/account"
+                                      render={(props) => (
+                                          <Account
+                                              {...props}
+                                              user={this.props.user}
+                                          />)}
+                                  />
+                                  <Route exact path="/blog" component={Blog} />
                                   <Route exact path="/signin" component={Signin} />
                               </Col>
                               <Col xs={12} md={3}>
@@ -53,7 +67,7 @@ class App extends Component {
                           </Row>
                       </Grid>
                   </div>
-                  <Header />
+                  <Footer />
               </div>
           </BrowserRouter>
       </div>
