@@ -50,6 +50,7 @@ passport.use(
             clientID: keys.facebookClientID,
             clientSecret: keys.facebookClientSecret,
             callbackURL: '/auth/facebook/callback',
+            profileFields: ['id', 'displayName', 'picture.type(large)'],
             proxy: true
         },
         async (accessToken, refreshToken, profile, done) => {
@@ -61,8 +62,7 @@ passport.use(
             const user = await new User({
                 profileId: profile.id,
                 username: profile.displayName,
-                // image: image.slice(0, image.length - 2) + '250'
-                //     gravatar.url(profile.emails[0].value, {s: '100', r: 'x', d: 'retro'}, true)
+                image: profile.photos[0].value
             }).save();
             done(null, user);
 
