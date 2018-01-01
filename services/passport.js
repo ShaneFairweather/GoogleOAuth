@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
-    // user.id refers to the id assigned by the database, not the OAuth (google, facebook, etc) id.
+    // user.id refers to the id assigned by MongoDB, not the OAuth (google, facebook, etc) id.
     done(null, user.id);
 });
 
