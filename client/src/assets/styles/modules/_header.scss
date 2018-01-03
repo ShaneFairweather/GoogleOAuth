@@ -12,6 +12,16 @@
       transition: $transition;
     }
   }
+  .navbar-toggle {
+    border: none;
+    &:hover, &:visited, &:active, &:focus {
+      border: none;
+      background-color: transparent;
+    }
+    .icon-bar {
+      background-color: white;
+    }
+  }
 }
 
 .rbLink {

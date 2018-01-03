@@ -11,12 +11,12 @@ body {
 
 #root, #main {
   background-color: #F9F9FB; }
-  #root button, #main button {
+  #root .btn, #main .btn {
     color: white;
     background-color: #03a9f4;
     border-color: #03a9f4;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24); }
-    #root button:hover, #main button:hover {
+    #root .btn:hover, #main .btn:hover {
       color: #03a9f4;
       background-color: white;
       border: 1px solid #03a9f4;
@@ -33,7 +33,6 @@ body {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px; }
-
 .account .panel-body .passwordContainer {
   padding: 0 20px 10px; }
 
@@ -92,7 +91,6 @@ body {
     .loginControlPanel .panel-body a:hover {
       color: #3c5a98;
       transition: all .2s ease-in-out; }
-
 .loginControlPanel__text {
   font-size: 20px; }
 
@@ -142,6 +140,13 @@ body {
     .navbar .navbar-collapse ul li a:hover {
       color: #03a9f4;
       transition: all 0.4s ease 0s; }
+  .navbar .navbar-toggle {
+    border: none; }
+    .navbar .navbar-toggle:hover, .navbar .navbar-toggle:visited, .navbar .navbar-toggle:active, .navbar .navbar-toggle:focus {
+      border: none;
+      background-color: transparent; }
+    .navbar .navbar-toggle .icon-bar {
+      background-color: white; }
 
 .rbLink a:hover {
   color: #03a9f4; }
@@ -200,16 +205,15 @@ body {
   border-radius: 50%;
   position: relative;
   top: 2px; }
-
 .post .postAuthor {
   font-size: 1.6em;
   margin-bottom: 0;
   margin-top: 0; }
-
 .post .postBody {
   clear: both;
   margin-top: 20px;
   padding: 10px 0; }
-
 .post .innerPost {
   padding: 10px; }
+
+/*# sourceMappingURL=styles.css.map */
