@@ -1,0 +1,21 @@
+.blog {
+  &__header {
+    margin-bottom: 1.5rem;
+    &__img {
+      img {
+        height: 80px;
+        margin-right: 1rem;
+      }
+    }
+    &__title {
+
+    }
+    &--other {
+      flex-direction: row !important;
+      align-items: center;
+    }
+    h5 {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

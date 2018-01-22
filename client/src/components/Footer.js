@@ -1,11 +1,12 @@
 import React from 'react';
+import { Container } from 'reactstrap';
 
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="container">
-                <p className="text-muted">&copy; 2018 Shane Fairweather</p>
-            </div>
+            <Container>
+                <p className="text-muted">&copy; 2018 <a href="http://shanefairweather.com">Shane Fairweather</a></p>
+            </Container>
         </footer>
     )
 }

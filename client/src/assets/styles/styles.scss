@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 @import "./base/variables";
 @import "./base/mixins";
 @import "./base/global";
 @import "./modules/account";
-@import "./modules/controlPanel";
+@import "modules/control-panel";
 @import "./modules/footer";
 @import "./modules/forms";
 @import "./modules/header";
-@import "./modules/userList";
+@import "modules/user-list";
 @import "./modules/signin";
 @import "./modules/post";
+@import "./modules/blog";
+@import "./modules/blog-detail";
+@import "./modules/social-button";

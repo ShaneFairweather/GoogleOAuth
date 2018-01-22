@@ -13,7 +13,7 @@ import ControlPanel from './ControlPanel';
 import Account from './Account';
 import Signin from './Signin';
 import Blog from './Blog';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 
 
@@ -22,52 +22,53 @@ class App extends Component {
         this.props.fetchUser();
         this.props.fetchUserList();
         this.props.fetchPostList();
-        console.log(this.props.users);
-        console.log(this.props.posts);
-    }
+        // console.log(this.props.user);
+        console.log(this.props);
+    };
 
   render() {
-    return (
+      return (
       <div className="App">
           <BrowserRouter>
               <div>
-                  <Header />
-                  <div id="main" className="container">
-                      <Grid>
-                          <Row>
-                              <Col xs={12} md={3}>
-                                  <ControlPanel user={this.props.user} />
-                              </Col>
-                              <Col xs={12} md={6}>
-                                  <Route
-                                      exact
-                                      path="/"
-                                      render={(props) => (
-                                          <Home
-                                            {...props}
-                                            user={this.props.user}
-                                            posts={this.props.posts}
-                                          />)}
-                                  />
-                                  <Route
-                                      exact
-                                      path="/account"
-                                      render={(props) => (
-                                          <Account
-                                              {...props}
-                                              user={this.props.user}
-                                          />)}
-                                  />
-                                  <Route exact path="/blog" component={Blog} />
-                                  <Route exact path="/signin" component={Signin} />
-                              </Col>
-                              <Col xs={12} md={3}>
-                                  <UserList users={this.props.users} />
-                              </Col>
-                          </Row>
-                      </Grid>
-                  </div>
-                  <Footer />
+                  <Header user={this.props.user} />
+                  <Container id="main">
+                      <Row>
+                          <Col xs={12} md={3}>
+                              <ControlPanel user={this.props.user} />
+                          </Col>
+                          <Col xs={12} md={6}>
+                              <Route
+                                  exact
+                                  path="/"
+                                  render={(props) => (
+                                      <Home
+                                        {...props}
+                                        user={this.props.user}
+                                        posts={this.props.posts}
+                                      />)}
+                              />
+                              <Route
+                                  exact
+                                  path="/account"
+                                  render={(props) => (
+                                      <Account
+                                          {...props}
+                                          user={this.props.user}
+                                      />)}
+                              />
+                              <Route
+                                  exact
+                                  path="/users/:id/blog"
+                                  component={Blog}
+                              />
+                              <Route exact path="/signin" component={Signin} />
+                          </Col>
+                          <Col xs={12} md={3}>
+                              <UserList users={this.props.users} />
+                          </Col>
+                      </Row>
+                  </Container>
               </div>
           </BrowserRouter>
       </div>
@@ -78,12 +79,12 @@ class App extends Component {
 function mapStateToProps(state) {
     console.log(state);
     return {
-        user: state.auth,
+        user: state.user,
         users: state.users,
-        posts: state.posts
+        posts: state.posts,
+        blogPosts: state.blogPosts
     }
 }
 
 
 export default connect(mapStateToProps, actions)(App);
-// export default App;

@@ -1,70 +1,77 @@
 import React, { Component } from 'react';
-import { Panel, Form, FormControl, FormGroup, Button, ButtonToolbar, ControlLabel } from 'react-bootstrap';
+import { Card, Form, Input, FormGroup, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class PostForm extends Component {
-    constructor(props) {
-        super(props);
+    state = {
+        postContent: ''
+    };
 
-        this.state = {
-            postContent: ''
-        };
-        this.onTextChange = this.onTextChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    }
-
-    onTextChange(e) {
+    onTextChange = (e) => {
         this.setState({
             postContent: e.target.value
         })
-    }
+    };
 
-    onSubmit(e) {
+    onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.props.user.image);
         this.props.addPost(
             this.props.user.username,
             this.props.user.image,
             this.state.postContent
-        )
+        );
         this.props.fetchPostList();
         this.setState({
             postContent: ''
         })
+    };
+
+    renderButton() {
+        if(this.state.postContent === '') {
+            return (
+                <Button
+                    disabled
+                    className="postSubmit"
+                    type="submit">
+                    Add post
+                </Button>
+            )
+        } else {
+            return (
+                <Button
+                    className="postSubmit"
+                    type="submit">
+                    Add post
+                </Button>
+            )
+        }
     }
 
     render() {
         return (
-            <Panel>
+            <Card className="post-form">
                 <h3>Add a post</h3>
-                <Form id="postForm" onSubmit={this.onSubmit}>
-                    <FormGroup controlId="formControlsTextarea">
-                        {/*<ControlLabel>Textarea</ControlLabel>*/}
-                        <FormControl
-                            componentClass="textarea"
+                <Form id="postForm" onSubmit={(e) => this.onSubmit(e)}>
+                    <FormGroup>
+                        <Input
                             placeholder="Add post content"
-                            rows={4}
+                            type="textarea"
                             value={this.state.postContent}
                             onChange={this.onTextChange}
+                            rows={4}
                         />
                     </FormGroup>
-                    <ButtonToolbar>
-                        <Button
-                            className="postSubmit"
-                            type="submit">
-                            Add post
-                        </Button>
-                    </ButtonToolbar>
+                    {this.renderButton()}
                 </Form>
-            </Panel>
+            </Card>
         )
     }
 }
 
 function mapStateToProps(state) {
     return {
-        user: state.auth
+        user: state.user
     }
 }
 

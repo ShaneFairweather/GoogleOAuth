@@ -3,7 +3,7 @@ const Post = mongoose.model('posts');
 
 
 module.exports = app => {
-    app.post("/api/add-post", (req, res, next) => {
+    app.post("/api/posts/new", (req, res, next) => {
         const author = req.body.author;
         const content = req.body.content;
         const avatar = req.body.avatar;

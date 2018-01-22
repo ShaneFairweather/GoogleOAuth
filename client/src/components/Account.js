@@ -1,43 +1,24 @@
 import React from 'react';
-import { Panel, ButtonToolbar, Button } from 'react-bootstrap';
+import { Card, Button } from 'reactstrap';
 
 const Account = (props) => {
-    if(props.user) {
+    // if(props.user) {
         return (
-            <Panel className="account">
+            <Card className="account">
                 <h2>My Account</h2>
                 <hr/>
                 <div className="avatarContainer">
                     <h4>Profile picture</h4>
-                    <img src={props.user.image} alt="profileImg"/>
-                    <ButtonToolbar>
-                        <Button type="submit">
-                            Upload new picture
-                        </Button>
-                    </ButtonToolbar>
+                    {/*<img src={props.user.image} alt="profileImg"/>*/}
+                    <Button type="submit">
+                        Upload new picture
+                    </Button>
                 </div>
                 <br/>
-                {/*<hr/>*/}
-                {/*<div className="passwordContainer">*/}
-                {/*<h4>Change Password</h4>*/}
-                {/*<Form>*/}
-                {/*<FormGroup controlId="formInlineName">*/}
-                {/*<FormControl componentClass="input" placeholder="New password" type="password" />*/}
-                {/*</FormGroup>*/}
-                {/*<FormGroup controlId="formInlineName">*/}
-                {/*<FormControl componentClass="input" placeholder="Repeat password" type="password" />*/}
-                {/*</FormGroup>*/}
-                {/*<ButtonToolbar>*/}
-                {/*<Button>*/}
-                {/*Change password*/}
-                {/*</Button>*/}
-                {/*</ButtonToolbar>*/}
-                {/*</Form>*/}
-                {/*</div>*/}
-            </Panel>
+            </Card>
         )
-    }
-}
+    // }
+};
 
 export default Account;
 

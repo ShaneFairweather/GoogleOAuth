@@ -3,17 +3,16 @@ const Blog = mongoose.model('blogs');
 
 
 module.exports = app => {
-    app.get('/api/:id/blog', (req, res) => {
-        Blog.findById(req.params.id, (err, blogs) => {
-            res.send(blogs);
-        })
+    app.get('/api/:id/blog-posts', async (req, res, next) => {
+        const authorId = req.params.id;
+        const blogPosts = await Blog.find({authorId}).lean();
+        res.send(blogPosts);
     });
 
-    app.post('/api/add-blog', (req, res) => {
-        const authorId = req.body.googleId;
+    app.post('/api/:id/blog-posts/new', (req, res) => {
+        const authorId = req.body.id;
         const title = req.body.title;
         const content = req.body.content;
-        console.log(authorId);
         const blog = new Blog({
             authorId: authorId,
             title: title,
@@ -21,4 +20,4 @@ module.exports = app => {
             date: new Date().toDateString()
         }).save();
     });
-}
+};

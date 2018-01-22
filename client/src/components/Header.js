@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { connect } from 'react-redux';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem  } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Profile from '../assets/images/portrait.png';
 
 class Header extends Component {
+    state = {
+        isOpen: false
+    };
+
+    toggle = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    };
+
     renderLinks() {
        switch (this.props.user) {
            case null:
                return;
            case false:
                return (
-                   <Nav pullRight>
-                       <NavItem eventKey={2} className="rblink"><Link to="/signin">Sign In</Link></NavItem>
-                   </Nav>
+                    <Nav className="ml-auto" navbar key={1}>
+                        <NavItem className="header__list-item">
+                            <Link to="/signin">Sign In</Link>
+                        </NavItem>
+                    </Nav>
                );
            default:
                return ([
-                   <Nav pullRight key="signout" id="signout">
-                       <li className="signoutLink"><a href="/api/logout">Sign out</a></li>
-
-                   </Nav>,
-                   <Nav pullRight key="greetUser" id="greetUser">
-                       <NavItem eventKey={2} className="rbLink">
-                           <Link to="/account">
-                               <img src={this.props.user.image} alt="headerImg" />&nbsp;{this.props.user.username}
-                           </Link>
+                   <Nav className="ml-auto" navbar key={2}>
+                       <NavItem className="header__list-item header__list-item--profile">
+                           <div className="header__user-img">
+                               <img src={this.props.user.image} alt="headerImg" />
+                           </div>
+                           {this.props.user.username} &nbsp;
+                           <span className="vert">&#124;</span>
+                       </NavItem>
+                       <NavItem className="header__list-item">
+                           <a href="/api/logout">Sign out</a>
                        </NavItem>
                    </Nav>
                ]);
@@ -34,26 +45,18 @@ class Header extends Component {
 
     render() {
         return (
-            <Navbar fixedTop collapseOnSelect>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <Link to="/">InterReact</Link>
-                    </Navbar.Brand>
-                    <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    {this.renderLinks()}
-                </Navbar.Collapse>
-            </Navbar>
+            <div>
+                <Navbar color="faded" light expand="md" className="header">
+                    <NavbarBrand className="header__brand" href="/">Interreact</NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        {this.renderLinks()}
+                    </Collapse>
+                </Navbar>
+            </div>
         )
     }
 }
 
 
-function mapStateToProps(state) {
-    return {
-        user: state.auth
-    }
-}
-
-export default connect(mapStateToProps, null)(Header);
+export default Header;

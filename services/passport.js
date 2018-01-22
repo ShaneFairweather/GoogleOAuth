@@ -28,7 +28,7 @@ passport.use(
         async (accessToken, refreshToken, profile, done) => {
             const image = profile._json.image.url;
             console.log(profile.googleId);
-            const existingUser = await User.findOne({googleId: profile.id});
+            const existingUser = await User.findOne({profileId: profile.id});
                 if(existingUser) {
                     return done(null, existingUser);
                 }

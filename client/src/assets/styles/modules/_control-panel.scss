@@ -1,0 +1,51 @@
+.control-panel {
+  margin-bottom: 1.5rem !important;
+  box-shadow: $boxShadow !important;
+  font-size: 1.4rem;
+  border-radius: 4px !important;
+  border: none !important;
+  background-color: white;
+  a {
+    text-decoration: none !important;
+    color: black;
+    &:hover {
+      color: black;
+      text-decoration: none !important;
+    }
+  }
+  &__item {
+    padding: 1rem 1rem 0;
+    display: flex;
+    align-items: center;
+    &:last-child {
+      padding-bottom: 1rem;
+    }
+    i {
+      margin-right: 1rem;
+      color: gray;
+      font-size: 2rem;
+    }
+    &:hover {
+      background-color: #ddd;
+      text-decoration: none;
+    }
+  }
+}
+
+.portrait {
+  cursor: default;
+  border-bottom: 1px solid #ddd !important;
+  background-color: white;
+  padding: 0 !important;
+  &:hover {
+    background-color: white;
+  }
+  img {
+    height: 240px;
+    margin: 0 auto;
+    border-radius: 4px 4px 0 0;
+    @include screen('md') {
+      width: 100%;
+    }
+  }
+}

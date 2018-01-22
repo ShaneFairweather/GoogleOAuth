@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Col } from 'react-bootstrap';
 import PostList from './PostList';
 import PostForm from '../components/PostForm';
 
@@ -18,6 +17,6 @@ const Home = (props) => {
             </div>
         )
     }
-}
+};
 
 export default Home;

@@ -13,22 +13,11 @@ export const fetchUserList = () =>
         dispatch({ type: FETCH_USER_LIST, payload: res.data });
     };
 
-
-// export function getUsers() {
-//     const request = axios.get(`http://localhost/users`);
-//     return {
-//         type: GET_USERS,
-//         payload: request
-//     }
-// }
-
-export const addPost = (author, avatar, content) => {
-    const request = axios.post('/api/add-post', {author, avatar, content});
-    return {
-        type: ADD_POST,
-        payload: request
-    }
-}
+export const addPost = (author, avatar, content) =>
+    async dispatch => {
+        const req = axios.post('/api/posts/new', {author, avatar, content});
+        dispatch({type: ADD_POST, payload: req.data})
+    };
 
 
 export const fetchPostList = () =>
@@ -38,10 +27,15 @@ export const fetchPostList = () =>
     };
 
 
-export const addBlog = (googleId, title, content) => {
-    const request = axios.post('/api/add-blog', {googleId, title, content});
-    return {
-        type: ADD_BLOG,
-        payload: request
-    }
-}
+export const addBlog = (id, title, content) =>
+    async dispatch => {
+        const req = axios.post(`/api/${id}/blog-posts/new`, {id, title, content});
+        dispatch({ type: ADD_BLOG, payload: req.data })
+    };
+
+
+export const fetchBlogList = (id) =>
+    async dispatch => {
+        const res = await axios.get(`/api/${id}/blog-posts`);
+        dispatch({ type: FETCH_BLOG_LIST, payload: res.data });
+    };

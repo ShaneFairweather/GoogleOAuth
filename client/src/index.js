@@ -6,7 +6,7 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers'
 import reduxThunk from 'redux-thunk';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 

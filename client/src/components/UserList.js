@@ -1,31 +1,40 @@
 import React from 'react';
-import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Card, CardHeader, ListGroup, ListGroupItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const UserList = (props) => {
-    console.log(props.users);
     const renderUsers = () => {
         if(props.users) {
             return props.users.map((user) => {
                 return (
-                    <ListGroupItem key={user._id}>
-                        <div>
-                            <img className="userListIcon" src={user.image} alt="userImg" height="25"/>
-                            &nbsp; {user.username}
+                    <Link to={{
+                        pathname: `/users/${user.profileId}/blog`,
+                        state: {
+                            img: user.image,
+                            name: user.username
+                        }
+                    }}>
+                        <div className="user-list__item" key={user._id}>
+                            <div>
+                                <img className="user-list__icon" src={user.image} alt="userImg" height="25"/>
+                                &nbsp; {user.username}
+                            </div>
                         </div>
-                    </ListGroupItem>
+                    </Link>
+
                 )
             })
         }
-    }
+    };
 
     return (
-        <Panel>
+        <Card>
             <h3>Users</h3>
-            <ListGroup className="userList">
+            <div className="user-list">
                 {renderUsers()}
-            </ListGroup>
-        </Panel>
+            </div>
+        </Card>
     )
-}
+};
 
 export default UserList;

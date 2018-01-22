@@ -1,74 +1,65 @@
-.navbar {
+.header {
   box-shadow: $boxShadow;
   border-radius: 0;
-  //background-color: #724290;
-  .navbar-collapse ul li a {
-    color: white;
-    &:visited {
-      color: white;
-    }
-    &:hover {
-      color: $buttonColor;
-      transition: $transition;
-    }
-  }
-  .navbar-toggle {
-    border: none;
-    &:hover, &:visited, &:active, &:focus {
-      border: none;
-      background-color: transparent;
-    }
-    .icon-bar {
-      background-color: white;
-    }
-  }
-}
-
-.rbLink {
-  a {
-    &:hover {
-      color: $buttonColor;
-    }
-  }
-}
-
-.signoutLink {
-  top: 1px;
-}
-
-.navbar-default {
+  //display: flex;
   background-color: $mainColor;
-  border: none;
-  .navbar-brand {
-    font-family: 'Play', sans-serif;
-    color: white;
-    font-size: 1.7em;
-    &:visited {
+  color: white;
+  align-items: center;
+  //background-color: #724290;
+  &__brand {
+    color: white !important;
+    font-size: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    flex: 1;
+  }
+  &__list-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    padding-right: 1rem;
+    a {
+      display: block;
       color: white;
-    }
-    &:hover {
-      color: $buttonColor;
-      //text-shadow: -1px -1px 26px white;
-      transition: $transition;
-    }
-  }
-  a {
-    color: white;
-    &:hover {
       text-decoration: none;
-      color: $buttonColor;
-      //text-shadow: -1px -1px 26px white;
-      transition: $transition;
+      &:hover {
+        color: $buttonColor;
+        text-decoration: none;
+        transition: .2s ease-in-out;
+      }
+    }
+    &--profile {
+      @include screen('md', max) {
+        display: none;
+      }
     }
   }
-  img {
-    height: 25px;
-    margin-right: 5px;
-    border-radius: 50%;
+  &__user-img {
+    img {
+      max-height: 35px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+  }
+  .vert {
+    color: #263a62;
+    font-weight: 200;
+    font-size: 2.4rem;
+    @include screen('md', max) {
+      display: none;
+    }
   }
 }
 
-#main {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
+
+//&:hover {
+//  color: $buttonColor;
+//  transition: $transition;
+//}
+//
+//.navbar-toggle {
+//  border: none;
+//  &:hover, &:visited, &:active, &:focus {
+//    border: none;
+//    background-color: transparent;
+//  }
